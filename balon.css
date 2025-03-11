@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f9a8d4, #fbcfe8);
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #ff007f;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.balloon {
+    width: 150px;
+    height: 200px;
+    background-color: #ff007f;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.balloon:hover {
+    transform: scale(1.1);
+}
+
+.balloon:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #ff007f;
+    transform: translateX(-50%);
+}
+
+#balloon-text {
+    font-size: 2.5em;
+}
+
+#done-message {
+    font-size: 1.5em;
+    color: #555;
+}
+
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    animation: explode 1s ease-in-out infinite;
+}
+
+.pop {
+    animation: popBalloon 0.4s forwards;
+    background-color: transparent;
+    box-shadow: none;
+    transition: transform 0.2s ease-in;
+}
+
+@keyframes popBalloon {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .balloon {
+        width: 120px;
+        height: 160px;
+    }
+
+    #balloon-text {
+        font-size: 2em;
+    }
+}
